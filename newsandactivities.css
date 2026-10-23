@@ -1,0 +1,418 @@
+
+/* ===== ROOT VARIABLES ===== */
+
+:root {
+    --navy: #0b2545;
+    --blue: #13315c;
+    --gold: #f5b700;
+    --light: #f4f7fb;
+    --text: #222;
+}
+
+/* ===== GLOBAL STYLES ===== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* ===== SITE HEADER ===== */
+
+.site-header {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 12px 24px;
+    gap: 10px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+nav a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+nav a:hover,
+nav a.active {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+/* ===== HERO SECTION ===== */
+
+.hero {
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    color: #fff;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+/* ===== NEWS AND ACTIVITIES SECTION ===== */
+
+.updates-section {
+    padding: 65px 5%;
+    background: #f0f2f4;
+    color: #29394b;
+}
+
+/* ===== SECTION HEADING ===== */
+
+.updates-heading {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.updates-heading h1 {
+    font-size: 30px;
+    margin-bottom: 14px;
+}
+
+.updates-heading h1::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 4px;
+    background: #f2b600;
+    border-radius: 10px;
+    margin: 12px auto;
+}
+
+.updates-heading p {
+    color: #68778b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* ===== NEWS GRID ===== */
+
+.updates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1050px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/* ===== NEWS CARD ===== */
+
+.update-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: #fff;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 7px 22px rgba(0, 0, 0, 0.09);
+    transition: transform 0.3s ease;
+    padding: 20px;
+}
+
+.update-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ===== NEWS CARD IMAGE ===== */
+
+.update-card > img {
+    display: block;
+    width: 100%;
+    height: 185px;
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+}
+
+/* ===== NEWS CARD CONTENT ===== */
+
+.update-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+}
+
+.category {
+    color: #08718a;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.update-content h2 {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 12px 0 8px;
+}
+
+.update-content p {
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+/* ===== READ MORE LINK ===== */
+
+.read-more {
+    align-self: flex-start;
+    margin-top: auto;
+    color: #08718a;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    color: #e7a900;
+}
+
+/* ===== POPUP BACKGROUND ===== */
+
+.news-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(10, 22, 43, 0.80);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+/* ===== SHOW POPUP ===== */
+
+.news-popup:target {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* ===== POPUP ARTICLE ===== */
+
+.popup-content {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.90);
+    transition: transform 0.3s ease;
+}
+
+.news-popup:target .popup-content {
+    transform: scale(1);
+}
+
+/* ===== POPUP IMAGE ===== */
+
+.popup-content > img {
+    display: block;
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    object-position: center;
+    background: #f5f6f8;
+    border-radius: 10px;
+    margin-bottom: 22px;
+}
+
+/* ===== POPUP TEXT ===== */
+
+.popup-content h2 {
+    color: #26364a;
+    font-size: 27px;
+    line-height: 1.4;
+    margin: 12px 0;
+}
+
+.popup-content h3 {
+    color: #08718a;
+    margin-top: 18px;
+}
+
+.popup-content p {
+    color: #596579;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 12px 0;
+}
+
+.popup-content .news-date {
+    color: #8a94a4;
+    font-size: 13px;
+}
+
+/* ===== CLOSE BUTTON ===== */
+
+.close-popup {
+    position: sticky;
+    top: 0;
+    float: right;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-right: -10px;
+    margin-bottom: -40px;
+    background: #eef2f7;
+    color: #26364a;
+    border-radius: 50%;
+    font-size: 29px;
+    text-decoration: none;
+}
+
+.close-popup:hover {
+    background: #dce5f0;
+}
+
+/* ===== TABLET RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+    .updates-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ===== HEADER RESPONSIVE ===== */
+
+@media (max-width: 700px) {
+    .site-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 45px 16px;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+}
+
+
+
+
+/* ===== FOOTER ===== */
+
+.site-footer {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+/* =====CELLPHONE POV ===== */
+@media (max-width: 700px) {
+    /* Header stacks and centers */
+    .site-header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 10px;
+        gap: 12px;
+    }
+
+    .brand {
+        justify-content: center;
+        text-align: center;
+        gap: 8px;
+        font-size: 1rem;
+    }
+
+    .brand img {
+        width: 38px;
+        height: 38px;
+    }
+
+    nav { width: 100%; }
+
+    nav ul {
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    nav a {
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+
+    /* Smaller banner */
+    .hero { padding: 40px 16px; }
+    .hero h1 { font-size: 1.6rem; }
+
+    /* Program cards: text on top, photo below */
+    .department-background { padding: 35px 18px 20px; }
+
+    .department-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 22px;
+    }
+
+    .department-text { width: 100%; }
+
+    .department-image {
+        flex: none;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .gallery-grid { padding: 0 18px 20px; }
+}

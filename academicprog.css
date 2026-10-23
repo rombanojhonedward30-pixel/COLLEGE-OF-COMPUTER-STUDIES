@@ -1,0 +1,300 @@
+/* ===== ROOT VARIABLES ===== */
+
+:root {
+    --navy: #0b2545;
+    --blue: #13315c;
+    --gold: #f5b700;
+    --light: #f4f7fb;
+    --text: #222;
+}
+
+/* ===== GLOBAL STYLES ===== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--light);
+    line-height: 1.6;
+    /* keeps footer at the bottom even on short pages */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* ===== SITE HEADER ===== */
+
+.site-header {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 12px 24px;
+    gap: 10px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+nav a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+nav a:hover,
+nav a.active {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+/* ===== ACADEMIC PROGRAMS HEADING ===== */
+
+.values-section {
+    padding: 60px 20px 40px;
+}
+
+.values-header {
+    text-align: center;
+}
+
+.values-header h1 {
+    color: #0b2345;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.values-header p {
+    color: #64748b;
+    font-size: 19px;
+}
+
+/* ===== DEPARTMENT BACKGROUND ===== */
+
+.department-background {
+    padding: 50px 5%;
+    background-color: #f3f6fc;
+}
+
+.department-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 35px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.department-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.department-text h2 {
+    color: #d9ad27;
+    font-size: 30px;
+    margin: 0 0 35px;
+}
+
+.department-text p {
+    color: #222;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0 0 16px;
+}
+
+.department-image {
+    flex: 0 0 300px;
+}
+
+.department-image img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ===== GALLERY GRID ===== */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 11px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5% 50px;
+}
+
+.gallery-item {
+    height: 240px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #e2eaf4;
+    box-shadow: 0 5px 18px rgba(18, 61, 112, 0.10);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+/* ===== TABLET RESPONSIVE ===== */
+
+@media (max-width: 800px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .site-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    .department-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .department-text {
+        width: 100%;
+    }
+
+    .department-image {
+        flex: none;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media (max-width: 500px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        height: 230px;
+    }
+}
+
+/* ===== FOOTER ===== */
+
+.site-footer {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+}
+
+
+
+/* ===== HEADER SMALLER ===== */
+@media (max-width: 700px) {
+    /* Header stacks and centers */
+    .site-header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 10px;
+        gap: 12px;
+    }
+
+    .brand {
+        justify-content: center;
+        text-align: center;
+        gap: 8px;
+        font-size: 1rem;
+    }
+
+    .brand img {
+        width: 38px;
+        height: 38px;
+    }
+
+    nav { width: 100%; }
+
+    nav ul {
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    nav a {
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+
+    /* Smaller banner */
+    .hero { padding: 40px 16px; }
+    .hero h1 { font-size: 1.6rem; }
+
+    /* Program cards: text on top, photo below */
+    .department-background { padding: 35px 18px 20px; }
+
+    .department-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 22px;
+    }
+
+    .department-text { width: 100%; }
+
+    .department-image {
+        flex: none;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .gallery-grid { padding: 0 18px 20px; }
+}

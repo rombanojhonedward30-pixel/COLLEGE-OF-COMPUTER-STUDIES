@@ -1,0 +1,349 @@
+
+/* ===== ROOT VARIABLES ===== */
+
+:root {
+    --navy: #0b2545;
+    --blue: #13315c;
+    --gold: #f5b700;
+    --light: #f4f7fb;
+    --text: #222;
+}
+
+/* ===== GLOBAL STYLES ===== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* ===== HEADER OF CCS IN FAS ===== */
+
+.site-header {
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 12px 24px;
+    gap: 10px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.brand img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+nav a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+nav a:hover,
+nav a.active {
+    background: var(--gold);
+    color: var(--navy);
+}
+
+/* ===== HERO SECTION ===== */
+
+.hero {
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    color: #fff;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+/* ===== FACULTY AND STAFF SECTION ===== */
+
+.faculty-section {
+    position: relative;
+    overflow: hidden;
+    padding: 45px 5% 55px;
+    min-height: 100vh;
+    background: radial-gradient(
+        ellipse at 50% 0%,
+        #fff 0%,
+        #f4f8ff 65%,
+        #edf5ff 100%
+    );
+}
+
+/* ===== DECORATIVE BACKGROUND CIRCLES ===== */
+
+.faculty-section::before,
+.faculty-section::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: #d8e8ff;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.faculty-section::before {
+    top: -100px;
+    left: -100px;
+    width: 260px;
+    height: 260px;
+}
+
+.faculty-section::after {
+    right: -140px;
+    bottom: -180px;
+    width: 300px;
+    height: 300px;
+}
+
+/* ===== FACULTY HEADING ===== */
+
+.faculty-heading {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+.eyebrow {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 20px 0;
+}
+
+.faculty-heading h1 {
+    color: #000;
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 14px;
+}
+
+.faculty-heading h1 span {
+    color: #d4a900;
+}
+
+.intro {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #61799f;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* ===== FACULTY GRID ===== */
+
+.faculty-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* ===== FACULTY CARDS ===== */
+
+.faculty-card {
+    min-width: 0;
+    padding: 17px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #edf2fb;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(37, 89, 160, 0.09);
+    text-align: center;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.faculty-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 32px rgba(37, 89, 160, 0.16);
+}
+
+/* ===== FACULTY PHOTOS ===== */
+
+.faculty-card > img {
+    display: block;
+    width: 100%;
+    height: 165px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 13px;
+    background: #e5edf8;
+}
+
+/* ===== FACULTY INFORMATION ===== */
+
+.faculty-info {
+    padding: 16px 0 5px;
+}
+
+.faculty-info h2 {
+    color: #10275b;
+    font-size: 17px;
+    font-weight: 750;
+    line-height: 1.4;
+    margin: 0 0 6px;
+}
+
+.position {
+    color: #000;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.department {
+    color: #61799f;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ===== TABLET RESPONSIVE ===== */
+
+@media (max-width: 1000px) {
+    .faculty-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .faculty-card > img {
+        height: 220px;
+    }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media (max-width: 700px) {
+    .site-header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 10px;
+        gap: 12px;
+    }
+
+    .brand {
+        justify-content: center;
+        text-align: center;
+        gap: 8px;
+        font-size: 1rem;
+    }
+
+    .brand img {
+        width: 38px;
+        height: 38px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    nav a {
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 45px 16px;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .faculty-section {
+        padding: 35px 18px 40px;
+    }
+
+    .faculty-heading {
+        margin-bottom: 25px;
+    }
+
+    .eyebrow {
+        font-size: 13px;
+        letter-spacing: 2px;
+        margin: 12px 0;
+    }
+
+    .faculty-heading h1 {
+        font-size: 32px;
+    }
+
+    .intro {
+        font-size: 15px;
+    }
+
+    .faculty-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 320px;
+    }
+
+    .faculty-card {
+        padding: 16px;
+    }
+
+    .faculty-card > img {
+        height: 240px;
+    }
+}
+
+/* ===== FOOTER OF CCS IN FAS ===== */
+
+.site-footer {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
